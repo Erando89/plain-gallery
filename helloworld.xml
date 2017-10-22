@@ -1,17 +1,17 @@
 <extension type="component" version="2.5.0" method="upgrade">
 
-	<name>Hello World!</name>
+	<name>COM_HELLOWORLD</name>
 	<!-- The following elements are optional and free of formatting constraints -->
-	<creationDate>November 2009</creationDate>
-	<author>John Doe</author>
-	<authorEmail>john.doe@example.org</authorEmail>
-	<authorUrl>http://www.example.org</authorUrl>
-	<copyright>Copyright Info</copyright>
-	<license>License Info</license>
+	<creationDate>October 2017</creationDate>
+	<author>Andreas Mickley</author>
+	<authorEmail>a.mickley1@gmx.de</authorEmail>
+	<authorUrl>https://github.com/Erando89</authorUrl>
+	<copyright>2017 Andreas Mickley</copyright>
+	<license>MIT</license>
 	<!-- The version string is recorded in the components table -->
 	<version>0.0.3</version>
 	<!-- The description is optional and defaults to the name -->
-	<description>Description of the Hello World component ...</description>
+	<description>COM_HELLOWORLD_DESCRIPTION</description>
 
 	<update> <!-- Runs on update; New in 2.5 -->
 		<schemas>
