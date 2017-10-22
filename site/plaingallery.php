@@ -5,8 +5,8 @@ defined('_JEXEC') or die('Restricted access');
 // import joomla controller library
 jimport('joomla.application.component.controller');
 
-// Get an instance of the controller prefixed by HelloWorld
-$controller = JControllerLegacy::getInstance('HelloWorld');
+// Get an instance of the controller prefixed by PlainGallery
+$controller = JControllerLegacy::getInstance('PlainGallery');
 
 // Perform the Request task
 $input = JFactory::getApplication()->input;

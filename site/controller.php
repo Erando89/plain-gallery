@@ -6,8 +6,8 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.controller');
 
 /**
- * Hello World Component Controller
+ * PlainGallery Component Controller
  */
-class HelloWorldController extends JControllerLegacy
+class PlainGalleryController extends JControllerLegacy
 {
 }
