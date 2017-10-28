@@ -5,4 +5,12 @@
 			<![CDATA[COM_PLAINGALLERY_PLAINGALLERY_VIEW_DEFAULT_DESC]]>
 		</message>
 	</layout>
+	<fields name="request"
+		addfieldpath="/administrator/components/com_plaingallery/models/fields">
+		<fieldset name="request">
+			<field name="galleryFolder" type="folderlist" default="" recursive="true"
+				label="Select a folder" directory="images" filter="" exclude="" width="300"
+				hide_none="true" hide_default="true" stripext="" />
+		</fieldset>
+	</fields>
 </metadata>
