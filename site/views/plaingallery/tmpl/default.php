@@ -14,9 +14,9 @@ $document->addCustomTag('<script type="text/javascript" src="components/com_plai
 <div class="albums">
 <button type="button" class="btn btn-default">Zur&uuml;ck</button>
 <?php 
-// display albums
-//var_dump($this->galleryFolders);
 
+// display albums
+$titleImages = array();
 for ($i = 1; $i < count($this->galleryFolders); $i++) {
 	// skip folder if empty
 	if (!empty($this->galleryFiles[$i])) {
@@ -29,6 +29,7 @@ for ($i = 1; $i < count($this->galleryFolders); $i++) {
 			}
 		endforeach;
 		$titleImage = $titleImage == NULL ? $this->galleryFiles[$i][0] : $titleImage;
+		$titleImages[$i] = $titleImage;
 		
 		// find title text
 		$split = preg_split("/(\\\|\/)/", $this->galleryFolders[$i]);
@@ -53,7 +54,6 @@ for ($i = 1; $i < count($this->galleryFolders); $i++) {
 <div class="gal-container">
 <?php
 $folderIndex = 1;
-$i = 1;
 $activeGroupIndex = 0;
 $activeGroup = NULL;
 $oldGroup = NULL; // used to avoid having the same kind of row twice
@@ -72,7 +72,10 @@ if (!empty($galleryFolder)) {
 <?php
 foreach($galleryFolder as $galleryFile):
 
-// echo "<script>console.log('activeGroup:" . json_encode($activeGroup). "')</script>";
+if ($galleryFile == $titleImages[$folderIndex] && !$this->includeCover) {
+	// skip cover file if used has chosen that option
+	continue;
+}
 
 if ($activeGroup == NULL) {
 	do {
@@ -90,16 +93,19 @@ if ($activeGroup == NULL) {
 	} while ($oldGroup == $activeGroup);
 }
 
+// find file name
+$split = preg_split("/(\\\|\/)/", $galleryFile);
+$fileName = $split[count($split)-1];
+
 ?>
 	<div class="<?php echo $activeGroup[$activeGroupIndex]?>">
 	   <div class="box">
-	   	  <a href="<?php echo $galleryFile ?>" data-rel="lightcase:gallery-<?php echo $folderIndex?>">
+	   	  <a href="<?php echo $galleryFile ?>" data-rel="lightcase:gallery-<?php echo $folderIndex?>" <?php echo $this->nameAsDescription ? "title='".$fileName."'" : ""?>>
 	      	<img src="<?php echo $galleryFile ?>">
 	      </a>
 	   </div>
 	</div>
 <?php
-$i++;
 $activeGroupIndex++;
 
 if ($activeGroupIndex == count($activeGroup)) {

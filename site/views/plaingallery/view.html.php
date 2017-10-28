@@ -26,6 +26,16 @@ class PlainGalleryViewPlainGallery extends JViewLegacy
 			$galleryFolder = $active->query['galleryFolder'];
 		}
 		
+		$nameAsDescription = false;
+		if ( isset($active->query['nameAsDescription']) ) {
+			$nameAsDescription= $active->query['nameAsDescription'] == "1";
+		}
+		
+		$includeCover = false;
+		if ( isset($active->query['includeCover']) ) {
+			$includeCover = $active->query['includeCover'] == "1";
+		}
+		
 		// Retrieve files from folders
 		$galleryFolderArray = $this->listSubDirs($galleryFolder);
 		for ($i = 1; $i < count($galleryFolderArray); $i++) {
@@ -46,14 +56,10 @@ class PlainGalleryViewPlainGallery extends JViewLegacy
 		}
 		unset($entry);
 		
-		// Ausgabe
-		
-		$this->galleryFolders=  $galleryFolderArray;
-		$this->galleryFiles=  $galleryFilesArray;
-		
-// 		var_dump($galleryFolderArray);
-// 		echo '<br>';
-// 		var_dump($galleryFilesArray);
+		$this->galleryFolders = $galleryFolderArray;
+		$this->galleryFiles = $galleryFilesArray;
+		$this->includeCover = $includeCover;
+		$this->nameAsDescription = $nameAsDescription;
 
 		// Display the view
 		parent::display($tpl);

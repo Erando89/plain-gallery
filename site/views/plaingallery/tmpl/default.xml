@@ -8,9 +8,19 @@
 	<fields name="request"
 		addfieldpath="/administrator/components/com_plaingallery/models/fields">
 		<fieldset name="request">
-			<field name="galleryFolder" type="folderlist" default="" recursive="true"
-				label="Select a folder" directory="images" filter="" exclude="" width="300"
-				hide_none="true" hide_default="true" stripext="" />
+			<field name="galleryFolder" type="folderlist" default=""
+				description="COM_PLAINGALLERY_PLAINGALLERY_VIEW_GALLERY_FOLDER_DESC"
+				recursive="true" label="COM_PLAINGALLERY_PLAINGALLERY_VIEW_GALLERY_FOLDER_TITLE"
+				directory="images" filter="" exclude="" width="300" hide_none="true"
+				hide_default="true" stripext="" />
+			<field name="includeCover" type="checkbox"
+				label="COM_PLAINGALLERY_PLAINGALLERY_VIEW_INCLUDE_COVER_TITLE"
+				description="COM_PLAINGALLERY_PLAINGALLERY_VIEW_INCLUDE_COVER_DESC"
+				value="1" />
+			<field name="nameAsDescription" type="checkbox"
+				label="COM_PLAINGALLERY_PLAINGALLERY_VIEW_NAME_AS_DESCITION_TITLE"
+				description="COM_PLAINGALLERY_PLAINGALLERY_VIEW_NAME_AS_DESCITION_DESC"
+				value="0" />
 		</fieldset>
 	</fields>
 </metadata>
