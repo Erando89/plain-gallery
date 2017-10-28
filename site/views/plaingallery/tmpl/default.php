@@ -5,6 +5,10 @@ defined('_JEXEC') or die('Restricted access');
 $document = JFactory::getDocument();
 $document->addStyleSheet('components/com_plaingallery/views/css/plaingallery.css');
 $document->addCustomTag('<script type="text/javascript" src="components/com_plaingallery/views/js/plaingallery.js"></script>');
+
+// Lightcase
+$document->addStyleSheet('components/com_plaingallery/views/vendor/lightcase-2.4.0/css/lightcase.css');
+$document->addCustomTag('<script type="text/javascript" src="components/com_plaingallery/views/vendor/lightcase-2.4.0/js/lightcase.js"></script>');
 ?>
 
 <div class="albums">
@@ -89,22 +93,9 @@ if ($activeGroup == NULL) {
 ?>
 	<div class="<?php echo $activeGroup[$activeGroupIndex]?>">
 	   <div class="box">
-	      <a href="#" data-toggle="modal" data-backdrop="true" data-target="#<?php echo $i ?>">
-	      <img src="<?php echo $galleryFile ?>">
+	   	  <a href="<?php echo $galleryFile ?>" data-rel="lightcase:gallery-<?php echo $folderIndex?>">
+	      	<img src="<?php echo $galleryFile ?>">
 	      </a>
-	      <div class="modal fade" id="<?php echo $i ?>" tabindex="-1" role="dialog">
-	         <div class="modal-dialog" role="document">
-	            <div class="modal-content">
-	               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-	               <div class="modal-body">
-	                  <img src="<?php echo $galleryFile ?>">
-	               </div>
-	               <div class="col-md-12 description">
-	                  <h4>This is the first one on my Gallery</h4>
-	               </div>
-	            </div>
-	         </div>
-	      </div>
 	   </div>
 	</div>
 <?php
@@ -127,5 +118,8 @@ endforeach;
 </div>
 
 <script>
-PlainGallery.init();
+jQuery(document).ready(function($) {
+	PlainGallery.init();
+	$('a[data-rel^=lightcase]').lightcase();
+});
 </script>
