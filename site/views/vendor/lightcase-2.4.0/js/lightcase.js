@@ -128,12 +128,12 @@
 					return '<p class="' + _self.settings.classPrefix + 'error">' + _self.settings.labels['errorMessage'] + '</p>';
 				},
 				labels: {
-					'errorMessage': 'Source could not be found...',
-					'sequenceInfo.of': ' of ',
-					'close': 'Close',
-					'navigator.prev': 'Prev',
-					'navigator.next': 'Next',
- 					'navigator.play': 'Play',
+					'errorMessage': 'Bild wurde nicht gefunden...',
+					'sequenceInfo.of': ' von ',
+					'close': 'Schlie&szlig;en',
+					'navigator.prev': 'Vorheriges',
+					'navigator.next': 'N&auml;chstes',
+ 					'navigator.play': 'Start',
 					'navigator.pause': 'Pause'
 				},
 				markup: function () {

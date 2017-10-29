@@ -31,6 +31,7 @@
 	</files>
 	<languages folder="site/language">
 		<language tag="en-GB">en-GB/en-GB.com_plaingallery.ini</language>
+		<language tag="de-DE">de-DE/de-DE.com_plaingallery.ini</language>
 	</languages>
 
 	<administration>
@@ -50,6 +51,8 @@
 		<languages folder="admin/language">
 			<language tag="en-GB">en-GB/en-GB.com_plaingallery.ini</language>
 			<language tag="en-GB">en-GB/en-GB.com_plaingallery.sys.ini</language>
+			<language tag="de-DE">de-DE/de-DE.com_plaingallery.ini</language>
+			<language tag="de-DE">de-DE/de-DE.com_plaingallery.sys.ini</language>
 		</languages>
 	</administration>
 

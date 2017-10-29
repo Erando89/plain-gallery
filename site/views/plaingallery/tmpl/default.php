@@ -96,7 +96,7 @@ if ($activeGroup == NULL) {
 // find file name
 $split = preg_split("/(\\\|\/)/", $galleryFile);
 $fileName = $split[count($split)-1];
-
+$fileName = preg_replace('/\\.[^.\\s]{3,4}$/', '', $fileName);
 ?>
 	<div class="<?php echo $activeGroup[$activeGroupIndex]?>">
 	   <div class="box">
@@ -125,7 +125,18 @@ endforeach;
 
 <script>
 jQuery(document).ready(function($) {
-	PlainGallery.init();
+	PlainGallery.init({
+	    swipe: true,
+	    labels: {
+			'errorMessage': 'Source could not be found...',
+			'sequenceInfo.of': ' VON ',
+			'close': 'Close',
+			'navigator.prev': 'Prev',
+			'navigator.next': 'Next',
+				'navigator.play': 'Play',
+			'navigator.pause': 'Pause'
+		}
+	});
 	$('a[data-rel^=lightcase]').lightcase();
 });
 </script>
