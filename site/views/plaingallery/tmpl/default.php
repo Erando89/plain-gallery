@@ -100,7 +100,7 @@ $fileName = preg_replace('/\\.[^.\\s]{3,4}$/', '', $fileName);
 ?>
 	<div class="<?php echo $activeGroup[$activeGroupIndex]?>">
 	   <div class="box">
-	   	  <a href="<?php echo $galleryFile ?>" data-rel="lightcase:gallery-<?php echo $folderIndex?>" <?php echo $this->nameAsDescription ? "title='".$fileName."'" : ""?>>
+	   	  <a data-lc-href="<?php echo str_replace(" ", "%20", $galleryFile) ?>" data-rel="lightcase:gallery-<?php echo $folderIndex?>" <?php echo $this->nameAsDescription ? "title='".$fileName."'" : ""?>>
 	      	<img src="<?php echo $galleryFile ?>">
 	      </a>
 	   </div>

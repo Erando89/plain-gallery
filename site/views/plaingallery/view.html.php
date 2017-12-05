@@ -67,6 +67,10 @@ class PlainGalleryViewPlainGallery extends JViewLegacy
 	
 	function listSubDirs($directory = null)
 	{
+		if (strpos($directory, 'images') === false) {
+			$directory = JPATH_ROOT . "/images/" . $directory;
+		}
+		
 		$iter = new RecursiveIteratorIterator(
 				new RecursiveDirectoryIterator($directory, RecursiveDirectoryIterator::SKIP_DOTS),
 				RecursiveIteratorIterator::SELF_FIRST,
@@ -76,6 +80,10 @@ class PlainGalleryViewPlainGallery extends JViewLegacy
 		$paths = array($directory);
 		foreach ($iter as $path => $dir) {
 			if ($dir->isDir()) {
+				if (!substr($path, 0, strlen(JPATH_ROOT)) === JPATH_ROOT) {
+					$path = JPATH_ROOT . "/images/" . $path;
+				}			
+				
 				$paths[] = $path;
 			}
 		}
